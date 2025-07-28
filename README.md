@@ -20,7 +20,6 @@ This repository contains source code for a scalable, __event-driven, serverless 
 - Amazon S3
 - PyArrow 
 - PyIceberg
-- Boto3
 
 ### Setup & Deployment (High-Level)
 - Upload CSV files to a designated S3 bucket.
