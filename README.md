@@ -1,6 +1,9 @@
 # Event-Driven Serverless ETL on AWS
 This repository contains source code for a scalable, __event-driven, serverless ETL pipeline__ built on AWS. The solution leverages AWS Lambda, AWS Glue Data Catalog for Iceberg tables, and AWS Athena to automate data ingestion, validation, transformation, and querying.
 
+### High level architecture
+![f1-arch-diag](https://github.com/user-attachments/assets/87af0b1a-91c1-4472-ab06-f9cb5d2b62e0)
+
 
 ### Features
 - __Serverless Architecture__: Utilizes AWS Lambda, Athena and Glue to process data with no infrastructure management.
