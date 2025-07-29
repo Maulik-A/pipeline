@@ -34,4 +34,6 @@ This repository contains source code for a scalable, __event-driven, serverless 
 
 Ensure appropriate IAM roles are configured for Lambda to access Glue, S3, and Athena.
 
+__Future update__: SQL execution will be saperate from this ETL logic. Probably using dbt or another lambda function.
+
 
