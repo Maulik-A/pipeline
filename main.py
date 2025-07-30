@@ -34,7 +34,7 @@ def main(bucket, key):
         df = read_file(bucket_name=bucket, key_value=key, s3= s3)
         result = validate_data(df)
         if result["is_valid"]:
-            transform_data(df, race_id)
+            df = transform_data(df, race_id)
             table = load_to_iceberg_table(df, catalog_name, database_name, table_location)
             logger.info("Data loaded in staging table: %s", table)
             merge_to_fact_table(athena, catalog_name, database_name, table_location, table, dst_table_name)
