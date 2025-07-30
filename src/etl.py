@@ -183,7 +183,7 @@ def merge_to_fact_table(
     client = athena_client
 
     try:
-        sql_path = 'sql/merge_fact_table.sql'
+        sql_path = 'src/sql/merge_fact_table.sql'
         query_template = load_sql_query(sql_path)
         query = query_template.format(
             catalog=catalog,

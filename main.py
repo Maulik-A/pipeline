@@ -27,6 +27,7 @@ def main(bucket, key):
     database_name = config.database_name
     table_location= config.table_location
     dst_table_name= config.fact_table
+    athena_catalog = config.athena_catalog
 
     try:
         logger.info('Starting ETL process for bucket: %s, key: %s', bucket, key)
@@ -37,7 +38,7 @@ def main(bucket, key):
             df = transform_data(df, race_id)
             table = load_to_iceberg_table(df, catalog_name, database_name, table_location)
             logger.info("Data loaded in staging table: %s", table)
-            merge_to_fact_table(athena, catalog_name, database_name, table_location, table, dst_table_name)
+            merge_to_fact_table(athena, athena_catalog, database_name, table_location, table, dst_table_name)
             logger.info("Data successfully merged in fact table: %s", dst_table_name)
         else:
             logger.error("Data validation failed")
@@ -48,8 +49,8 @@ def main(bucket, key):
         raise
 
 if __name__ == "__main__":
-    bucket = "add bucket name"
-    key = "add/key/here.csv"
+    bucket = "telem-data"
+    key = "telem_data_input/21R01BHR_FP1.csv"
     try:
         main(bucket, key)
     except Exception as e:

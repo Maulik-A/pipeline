@@ -28,6 +28,7 @@ table_location = f"s3://{glue_bucket}/iceberg_tbl"
 database_name = os.environ.get('glue_database')
 table_name= os.environ.get("destination_table")
 fact_table= os.environ.get("fact_tbl")
+athena_catalog= os.environ.get("athena_catalog")
 
 glue_catalog = load_catalog(
     'default',
